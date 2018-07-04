@@ -2,3 +2,5 @@
 __pycache__/
 for_blog/
 .gitignore
+GuessGame_Japanese.py
+GuessGame_3_Japanese.py
