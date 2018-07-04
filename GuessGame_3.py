@@ -42,46 +42,46 @@ class Player:
             return self.half_guess()
 
 
-print("お名前は何ですか？")
+print("What is your name?")
 name = input("> ")
-range = 100
-print("どのモードのPCと対戦しますか？（数字を入力して下さい）")
-print("  1. ランダム選択")
-print("  2. 1/2法")
-print("  3. はじめだけランダム")
+maxi = 100
+print("Which of the rules do you want this program to use?\n(Enter the number)")
+print("  1. Random guess")
+print("  2. Middle suggestion")
+print("  3. First random, then middle suggestion")
 while True:
     try:
         que = int(input("> "))
         break
     except:
-        print("{}さん、入力がおかしいですよ？".format(name))
-print("{}さん、1から{}までの数字で、何か数字を思い描いて下さい 。私が6回以内に当てて見せます。".format(name, range))
+        print("Hey {}, check your input!".format(name))
+print("Hi{}, imagine a number between 1 to {}. I will find your number within 6 guess".format(name, maxi))
 
 counter = 6
 total = counter
-pc = Player(range)
+pc = Player(maxi)
 func = pc.interpreter(que)
 
 while counter != 0:
     try:
         if counter == 1:
-            print("これがラストチャンスですね。")
+            print("This is the last round.")
         else:
-            print("あと{}回チャンスが残っています。".format(counter - 1))
+            print("I have another {} chance(s)".format(counter - 1))
 
         pc_guess = func()
-        print("あなたの数字は{}ですか？".format(pc_guess))
-        print("（正しければ ok、これがあなたの数字より小さければ low、 大きければ highを入力）")
+        print("Is it {}?".format(pc_guess))
+        print("If yes, enter 'ok', if this is smaller than yours, enter 'low', if larger, enter 'high'.")
 
         while True:
             response = input("> ")
             if response not in ["ok", "low", "high"]:
-                print("{}さん、入力がおかしいですよ？".format(name))
+                print("Hey {}, check your input!".format(name))
             else:
                 break
 
         if response == "ok":
-            print("わーい、当たった！また遊びましょう！")
+            print("Whoopee! Let's enjoy again！")
             break
         else:
             tpl = (response, pc_guess)
@@ -89,12 +89,12 @@ while counter != 0:
             counter -= 1
             print("")
     except:
-        print("{}さん、入力がおかしいですよ？".format(name))
+        print("Hey {}, check your input!".format(name))
 
 if counter == 0:
-    print("悔しいです。答えを教えて下さい。")
+    print("What a bummer! Could you tell me your number?")
     ans = int(input("> "))
-    if ans < pc.low or ans > pc.high:
-        print("あなたはどこかで嘘をついています！")
+    if ans < pc.low or ans > pc.high or ans in pc.history:
+        print("You are lying to me！")
     else:
-        print("参りました。またやりましょう！")
+        print("You win. Give me one more chance!")
