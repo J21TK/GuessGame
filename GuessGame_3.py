@@ -71,16 +71,16 @@ while counter != 0:
 
         pc_guess = func()
         print("Is it {}?".format(pc_guess))
-        print("If yes, enter 'ok', if this is smaller than yours, enter 'low', if larger, enter 'high'.")
+        print("If yes, enter 'yes', if this is smaller than yours, enter 'low', if larger, enter 'high'.")
 
         while True:
             response = input("> ")
-            if response not in ["ok", "low", "high"]:
+            if response not in ["yes", "low", "high"]:
                 print("Hey {}, check your input!".format(name))
             else:
                 break
 
-        if response == "ok":
+        if response == "yes":
             print("Whoopee! Let's enjoy again！")
             break
         else:
