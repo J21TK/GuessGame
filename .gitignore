@@ -1,0 +1,3 @@
+# exclude the dir of "for_blog"
+__pycache__/
+for_blog/git
