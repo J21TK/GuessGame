@@ -156,12 +156,12 @@ def main():
     player.gamecenter(test_range, trial, player.interpreter("designed_guess_randomstart"))
     player.gamecenter(test_range, trial, player.interpreter("designed_guess_randomfirst"))
     player.gamecenter(test_range, trial, player.interpreter("designed_guess_halffirst"))
-    #player.gamecenter(test_range, trial, player.interpreter("onethree_guess"))
-    #player.gamecenter(test_range, trial, player.interpreter("onethree_random_guess"))
-    #player.gamecenter(test_range, trial, player.interpreter("twothree_random_guess"))
-    #player.gamecenter(test_range, trial, player.interpreter("random_onethree_guess"))
-    #player.gamecenter(test_range, trial, player.interpreter("switch_three_guess"))
-    #player.gamecenter(test_range, trial, player.interpreter("switch_three_random"))
+    player.gamecenter(test_range, trial, player.interpreter("onethree_guess"))
+    player.gamecenter(test_range, trial, player.interpreter("onethree_random_guess"))
+    player.gamecenter(test_range, trial, player.interpreter("twothree_random_guess"))
+    player.gamecenter(test_range, trial, player.interpreter("random_onethree_guess"))
+    player.gamecenter(test_range, trial, player.interpreter("switch_three_guess"))
+    player.gamecenter(test_range, trial, player.interpreter("switch_three_random"))
 
 
 if __name__ == '__main__':

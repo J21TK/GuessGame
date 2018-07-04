@@ -12,9 +12,9 @@ def statistics():
     for item in filelist:
         path = os.path.abspath(item)
         file = pd.read_table(path, header=None, index_col=None)
-        file = file.values.flatten() #numpyのndarrayにして1次元化
+        file = file.values.flatten()
         ave = file.mean()
-        sem = file.std(ddof = 1)/((file.size)**(1/2)) #不偏標準偏差にするため
+        sem = file.std(ddof = 1)/((file.size)**(1/2))
         tmp[item.replace(".txt", "")] = [ave, sem]
     return tmp
 
